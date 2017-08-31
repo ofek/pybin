@@ -70,5 +70,25 @@ else:
         return os.path.join(get_user_base(pypath), 'bin')
 
 
+    def put_in_path(pypath=None):
+        # This function is probably insufficient even though it works in
+        # most situations. Please improve this to succeed more broadly!
+        user_bin_path = locate(pypath)
+        path_line = 'PATH="{}{}$PATH"\n'.format(user_bin_path, os.path.sep)
+
+        user_profile = os.path.expanduser('~/.profile')
+        if os.path.exists(user_profile):
+            with open(user_profile, 'r') as f:
+                lines = f.readlines()
+        else:
+            lines = []
+
+        # PATH is likely already defined here but we'll
+        # simply redefine it to make our lives easy.
+        lines.append(path_line)
+        with open(user_profile, 'w') as f:
+            f.writelines(lines)
+
+
 def in_path(pypath=None):
     return locate(pypath) in os.environ['PATH']
