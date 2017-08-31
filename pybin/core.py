@@ -44,7 +44,7 @@ if ON_WINDOWS:
 
             # We do this because the output may contain new lines.
             old_path = ''.join(output.splitlines())
-            new_path = '{}{}{}'.format(user_bin_path, os.path.sep, old_path)
+            new_path = '{}{}{}'.format(user_bin_path, os.pathsep, old_path)
 
             subprocess.check_call(
                 ['powershell',
@@ -74,20 +74,25 @@ else:
         # This function is probably insufficient even though it works in
         # most situations. Please improve this to succeed more broadly!
         user_bin_path = locate(pypath)
-        path_line = 'export PATH="{}{}$PATH"\n'.format(user_bin_path, os.path.sep)
+        path_line = 'export PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep)
 
-        user_profile = os.path.expanduser('~/.profile')
-        if os.path.exists(user_profile):
-            with open(user_profile, 'r') as f:
-                lines = f.readlines()
-        else:
-            lines = []
+        try:
+            user_profile = os.path.expanduser('~/.profile')
+            if os.path.exists(user_profile):
+                with open(user_profile, 'r') as f:
+                    lines = f.readlines()
+            else:
+                lines = []
 
-        # PATH is likely already defined here but we'll
-        # simply redefine it to make our lives easy.
-        lines.append(path_line)
-        with open(user_profile, 'w') as f:
-            f.writelines(lines)
+            # PATH is likely already defined here but we'll
+            # simply redefine it to make our lives easy.
+            lines.append(path_line)
+            with open(user_profile, 'w') as f:
+                f.writelines(lines)
+        except PermissionError:
+            return False
+
+        return True
 
 
 def in_path(pypath=None):
