@@ -74,7 +74,7 @@ else:
         # This function is probably insufficient even though it works in
         # most situations. Please improve this to succeed more broadly!
         user_bin_path = locate(pypath)
-        path_line = 'PATH="{}{}$PATH"\n'.format(user_bin_path, os.path.sep)
+        path_line = 'export PATH="{}{}$PATH"\n'.format(user_bin_path, os.path.sep)
 
         user_profile = os.path.expanduser('~/.profile')
         if os.path.exists(user_profile):
