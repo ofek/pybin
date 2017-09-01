@@ -20,6 +20,7 @@ placed in special directory specifically for the intended user. Unfortunately,
 this location is most likely not included in your user's PATH variable. So for
 example if you did ``pip3 install --user hatch`` and then tried to learn more
 about your new tool by doing ``hatch --help``, it would fail to be located.
+See: `<https://github.com/pypa/pip/issues/3813>`_
 
 pybin solves this problem by providing a small CLI, and corresponding API, to
 locate your Python's user bin and optionally update the user PATH. It supports
