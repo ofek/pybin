@@ -84,6 +84,18 @@ pybin put
       -f, --force        Update PATH even if it appears to be correct.
       -h, --help         Show this message and exit.
 
+API
+---
+
+.. code-block:: python
+
+    >>> from pybin import in_path, locate, put_in_path
+    >>> in_path()
+    False
+    >>> locate()
+    'C:\\Users\\Ofek\\AppData\\Roaming\\Python\\Python36\\Scripts'
+    >>> success = put_in_path
+
 License
 -------
 
