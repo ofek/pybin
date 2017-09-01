@@ -5,14 +5,6 @@ pybin
     :target: https://pypi.org/project/pybin
     :alt: Latest PyPI version
 
-.. image:: https://img.shields.io/travis/ofek/pybin/master.svg?style=flat-square
-    :target: https://travis-ci.org/ofek/pybin
-    :alt: Travis CI
-
-.. image:: https://img.shields.io/codecov/c/github/ofek/pybin/master.svg?style=flat-square
-    :target: https://codecov.io/gh/ofek/pybin
-    :alt: Codecov
-
 .. image:: https://img.shields.io/pypi/pyversions/pybin.svg?style=flat-square
     :target: https://pypi.org/project/pybin
     :alt: Supported Python versions
@@ -22,6 +14,19 @@ pybin
     :alt: License
 
 -----
+
+When you install a package via ``pip install --user ...``, any executables get
+placed in special directory specifically for the intended user. Unfortunately,
+this location is most likely not included in your user's PATH variable. So for
+example if you did ``pip3 install --user hatch`` and then tried to learn more
+about your new tool by doing ``hatch --help``, it would fail to be located.
+
+pybin solves this problem by providing a small CLI, and corresponding API, to
+locate your Python's user bin and optionally update the user PATH. It supports
+all major operating systems and does not require elevated privileges!::
+
+    Fear not, this only modifies the user PATH; the system PATH is never
+    touched nor even looked at!
 
 .. contents:: ``Table of Contents``
     :backlinks: none
