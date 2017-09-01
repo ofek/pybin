@@ -97,6 +97,12 @@ API
     'C:\\Users\\Ofek\\AppData\\Roaming\\Python\\Python36\\Scripts'
     >>> success = put_in_path()
 
+Manual modification
+-------------------
+
+Use the location pybin shows in concert with this very comprehensive document
+Java provides: `<https://www.java.com/en/download/help/path.xml>`_
+
 License
 -------
 
