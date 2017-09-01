@@ -74,7 +74,6 @@ else:
         # This function is probably insufficient even though it works in
         # most situations. Please improve this to succeed more broadly!
         user_bin_path = locate(pypath)
-        path_line = 'export PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep)
 
         try:
             user_profile = os.path.expanduser('~/.profile')
@@ -86,10 +85,21 @@ else:
 
             # PATH is likely already defined here but we'll
             # simply redefine it to make our lives easy.
-            lines.append(path_line)
+            lines.append('PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep))
             with open(user_profile, 'w') as f:
                 f.writelines(lines)
-        except PermissionError:
+
+            bashrc = os.path.expanduser('~/.bashrc')
+            if os.path.exists(bashrc):
+                with open(bashrc, 'r') as f:
+                    lines = f.readlines()
+            else:
+                lines = []
+
+            lines.append('export PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep))
+            with open(bashrc, 'w') as f:
+                f.writelines(lines)
+        except (OSError, PermissionError):
             return False
 
         return True
