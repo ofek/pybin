@@ -23,7 +23,7 @@ pybin
 
 -----
 
-.. contents:: **``Table of Contents``**
+.. contents:: ``Table of Contents``
     :backlinks: none
 
 Installation
