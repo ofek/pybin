@@ -23,10 +23,10 @@ about your new tool by doing ``hatch --help``, it would fail to be located.
 
 pybin solves this problem by providing a small CLI, and corresponding API, to
 locate your Python's user bin and optionally update the user PATH. It supports
-all major operating systems and does not require elevated privileges!:
+all major operating systems and does not require elevated privileges!
 
-    Fear not, this only modifies the user PATH; the system PATH is never
-    touched nor even looked at!
+    **Fear not, this only modifies the user PATH; the system PATH is never
+    touched nor even looked at!**
 
 .. contents:: ``Table of Contents``
     :backlinks: none
