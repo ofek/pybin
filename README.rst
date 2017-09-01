@@ -16,7 +16,7 @@ pybin
 -----
 
 When you install a package via ``pip install --user ...``, any executables get
-placed in special directory specifically for the intended user. Unfortunately,
+placed in a special directory specifically for the intended user. Unfortunately,
 this location is most likely not included in your user's PATH variable. So for
 example if you did ``pip3 install --user hatch`` and then tried to learn more
 about your new tool by doing ``hatch --help``, it would fail to be located.
