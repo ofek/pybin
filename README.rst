@@ -44,6 +44,46 @@ Python 2.6-2.7/3.3+ and PyPy.
 
 Do not use ``--user``!
 
+Commands
+--------
+
+Only 2!
+
+pybin
+^^^^^
+
+.. code-block:: bash
+
+    $ pybin -h
+    Usage: pybin [OPTIONS] COMMAND [ARGS]...
+
+      Shows the location of the bin directory and whether or not it is in the
+      user PATH.
+
+    Options:
+      -p, --pypath TEXT  An absolute path to a Python executable.
+      --version          Show the version and exit.
+      -h, --help         Show this message and exit.
+
+    Commands:
+      put  Updates the user PATH
+
+pybin put
+^^^^^^^^^
+
+.. code-block:: bash
+
+    $ pybin put -h
+    Usage: pybin put [OPTIONS]
+
+      Updates the user PATH. The shell must be restarted for the update to take
+      effect.
+
+    Options:
+      -p, --pypath TEXT  An absolute path to a Python executable.
+      -f, --force        Update PATH even if it appears to be correct.
+      -h, --help         Show this message and exit.
+
 License
 -------
 
