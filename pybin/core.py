@@ -99,6 +99,17 @@ else:
             lines.append('export PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep))
             with open(bashrc, 'w') as f:
                 f.writelines(lines)
+
+            bash_profile = os.path.expanduser('~/.bash_profile')
+            if os.path.exists(bash_profile):
+                with open(bash_profile, 'r') as f:
+                    lines = f.readlines()
+            else:
+                lines = []
+
+            lines.append('export PATH="{}{}$PATH"\n'.format(user_bin_path, os.pathsep))
+            with open(bash_profile, 'w') as f:
+                f.writelines(lines)
         except (OSError, PermissionError):
             return False
 
