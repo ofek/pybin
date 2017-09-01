@@ -95,7 +95,7 @@ API
     False
     >>> locate()
     'C:\\Users\\Ofek\\AppData\\Roaming\\Python\\Python36\\Scripts'
-    >>> success = put_in_path
+    >>> success = put_in_path()
 
 License
 -------
