@@ -16,7 +16,7 @@ requirements = ['click']
 setup(
     name='pybin',
     version=version,
-    description='Cross-platform tool to put Python\'s user bin in PATH, no sudo/ELEV required!',
+    description="Cross-platform tool to put Python's user bin in PATH, no sudo/runas required!",
     long_description=readme,
     author='Ofek Lev',
     author_email='ofekmeister@gmail.com',
