@@ -43,7 +43,7 @@ Python 2.6-2.7/3.3+ and PyPy.
 
     $ pip install pybin
 
-You may need ``sudo``. **Do not use ``--user``!**
+You may need ``sudo``. Do **NOT** use ``--user``!
 
 Commands
 --------
